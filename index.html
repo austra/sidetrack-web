@@ -14,7 +14,10 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" crossorigin src="./assets/index-VPtWfico.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DvlkDLSG.css">
   </head>
@@ -22,6 +25,7 @@
     <div id="app">
       <div class="phone" id="phone">
         <button id="mute" class="icon-btn" type="button" aria-label="Mute">♪</button>
+
         <section id="screen-title" class="screen">
           <div class="title-sky"></div>
           <div class="title-train" aria-hidden="true"></div>
@@ -35,19 +39,37 @@
             <button id="btn-continue" class="btn ghost hidden" type="button">Continue career</button>
           </div>
         </section>
+
         <section id="screen-map" class="screen hidden">
-          <header class="sheet-head"><div><p class="eyebrow">career line</p><h2>Yard Map</h2></div>
-            <div class="pills"><span id="map-coins" class="pill brass">0</span><span id="map-safety" class="pill teal">78</span></div>
+          <header class="sheet-head">
+            <div>
+              <p class="eyebrow">career line</p>
+              <h2>Yard Map</h2>
+            </div>
+            <div class="pills">
+              <span id="map-coins" class="pill brass">0</span>
+              <span id="map-safety" class="pill teal">78</span>
+            </div>
           </header>
           <p id="map-day" class="lede">Day 1 · Prairie still owes you a clean departure.</p>
           <div id="map-list" class="map-list"></div>
           <div class="sheet-foot">
             <button id="btn-shop" class="btn primary" type="button">Upgrade shop</button>
-            <label class="night-toggle hidden" id="night-wrap"><input type="checkbox" id="night-toggle" /><span>Night shift</span></label>
+            <label class="night-toggle hidden" id="night-wrap">
+              <input type="checkbox" id="night-toggle" />
+              <span>Night shift</span>
+            </label>
           </div>
         </section>
+
         <section id="screen-shop" class="screen hidden">
-          <header class="sheet-head"><div><p class="eyebrow">company store</p><h2>Upgrade Shop</h2></div><span id="shop-coins" class="pill brass">0</span></header>
+          <header class="sheet-head">
+            <div>
+              <p class="eyebrow">company store</p>
+              <h2>Upgrade Shop</h2>
+            </div>
+            <span id="shop-coins" class="pill brass">0</span>
+          </header>
           <p class="lede">Spend what the last whistle paid. Hands earn quietly. You still pack the cars.</p>
           <div id="shop-list" class="shop-list"></div>
           <div class="sheet-foot">
@@ -55,13 +77,26 @@
             <button id="btn-reset" class="btn text" type="button">Reset career</button>
           </div>
         </section>
+
         <section id="screen-run" class="screen hidden run">
           <header class="hud">
-            <div class="watch" id="watch"><span class="watch-face" id="watch-face">1:20</span><span class="watch-label">depart</span></div>
-            <div class="hud-mid"><div class="bar-wrap"><div id="time-bar" class="bar"></div></div>
-              <div class="hud-stats"><span id="run-coins" class="stat">$0</span><span id="run-hands" class="stat dim">hands +0/s</span></div>
+            <div class="watch" id="watch">
+              <span class="watch-face" id="watch-face">1:20</span>
+              <span class="watch-label">depart</span>
             </div>
-            <div class="gauge" id="gauge" title="Safety"><span id="gauge-val">78</span><small>safe</small></div>
+            <div class="hud-mid">
+              <div class="bar-wrap">
+                <div id="time-bar" class="bar"></div>
+              </div>
+              <div class="hud-stats">
+                <span id="run-coins" class="stat">$0</span>
+                <span id="run-hands" class="stat dim">hands +0/s</span>
+              </div>
+            </div>
+            <div class="gauge" id="gauge" title="Safety">
+              <span id="gauge-val">78</span>
+              <small>safe</small>
+            </div>
           </header>
           <canvas id="yard"></canvas>
           <footer class="dock">
@@ -71,8 +106,15 @@
             <button id="btn-depart" class="btn dock-btn primary" type="button">Depart</button>
           </footer>
         </section>
+
         <section id="screen-results" class="screen hidden">
-          <header class="sheet-head"><div><p class="eyebrow" id="results-station">Prairie Siding</p><h2 id="results-title">On the advertised</h2></div><div id="results-stars" class="stars">★★★</div></header>
+          <header class="sheet-head">
+            <div>
+              <p class="eyebrow" id="results-station">Prairie Siding</p>
+              <h2 id="results-title">On the advertised</h2>
+            </div>
+            <div id="results-stars" class="stars">★★★</div>
+          </header>
           <p class="score" id="results-score">0</p>
           <ul class="breakdown" id="results-break"></ul>
           <div class="sheet-foot">
@@ -81,21 +123,31 @@
             <button id="btn-results-map" class="btn ghost" type="button">Map</button>
           </div>
         </section>
+
         <section id="screen-incident" class="screen hidden">
-          <p class="eyebrow">yard report</p><h2 id="inc-title">Incident</h2>
-          <p class="lede" id="inc-body"></p><p class="fineprint" id="inc-cost"></p>
+          <p class="eyebrow">yard report</p>
+          <h2 id="inc-title">Incident</h2>
+          <p class="lede" id="inc-body"></p>
+          <p class="fineprint" id="inc-cost"></p>
           <button id="btn-inc-go" class="btn primary" type="button">We roll anyway</button>
         </section>
+
         <section id="screen-over" class="screen hidden">
-          <p class="eyebrow">closed for inspection</p><h2>Yard chained</h2>
-          <p class="lede">Safety hit zero. The inspector padlocked the switch. Pay the fine or take an advance against the next two trains.</p>
+          <p class="eyebrow">closed for inspection</p>
+          <h2>Yard chained</h2>
+          <p class="lede">
+            Safety hit zero. The inspector padlocked the switch. Pay the fine or take an advance against the next two trains.
+          </p>
           <div class="sheet-foot">
             <button id="btn-over-pay" class="btn primary" type="button">Pay 25 · reopen</button>
             <button id="btn-over-loan" class="btn ghost" type="button">Take a 40 advance</button>
           </div>
         </section>
+
         <div id="tutorial" class="tutorial hidden">
-          <div class="tut-card"><p class="eyebrow">first trick</p><p id="tut-text">Drag a crate onto the car.</p>
+          <div class="tut-card">
+            <p class="eyebrow">first trick</p>
+            <p id="tut-text">Drag a crate onto the car.</p>
             <div class="tut-actions">
               <button id="btn-tut-skip" class="btn text" type="button">Skip</button>
               <button id="btn-tut-next" class="btn primary" type="button">Got it</button>
