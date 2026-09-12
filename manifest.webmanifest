@@ -1,0 +1,11 @@
+{
+  "name": "Sidetrack",
+  "short_name": "Sidetrack",
+  "description": "Pack the train, keep the schedule, don't wreck the yard.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#211812",
+  "theme_color": "#2a2118",
+  "orientation": "portrait",
+  "icons": [{"src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]
+}
