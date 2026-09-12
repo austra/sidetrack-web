@@ -1,1 +1,1 @@
-PLACEHOLDER_WILL_FAIL_IF_NOT_REPLACED
+(async()=>{const p=['j0.js.txt','j1.js.txt','j2.js.txt'];const t=await Promise.all(p.map(n=>fetch(new URL(n,import.meta.url)).then(r=>{if(!r.ok)throw new Error(n);return r.text()})));(0,eval)(t.join(''));})();
