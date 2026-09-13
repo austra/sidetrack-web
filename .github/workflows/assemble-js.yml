@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/assemble-js.yml'
+      - 'assets/js-rest-*.txt'
+      - 'assets/index-CwAHZJlY.js'
   workflow_dispatch:
 jobs:
   assemble:
@@ -12,37 +14,39 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch complete bundle
+      - name: Concatenate v5 JS chunks
         run: |
           set -euo pipefail
-          mkdir -p assets
-          WANT_SHA=2942ae15caa66fd6503d8fa2a69f9ae23055aa9232c397df15d2b18c66a81fd1
-          WANT_SIZE=48686
-          ok=0
-          for url in \
-            "https://paste.rs/t8emk" \
-            "https://h.uguu.se/oFLpQUqO.js" \
-            "https://dpaste.com/9USTYWKYM.txt"
-          do
-            echo "trying $url"
-            if curl -fsSL --retry 3 --max-time 30 -o /tmp/bundle.js "$url"; then
-              got_size=$(stat -c%s /tmp/bundle.js)
-              got_sha=$(sha256sum /tmp/bundle.js | awk '{print $1}')
-              echo "size=$got_size sha=$got_sha"
-              if [ "$got_size" = "$WANT_SIZE" ] && [ "$got_sha" = "$WANT_SHA" ]; then
-                cp /tmp/bundle.js assets/index-aVU3gst9.js
-                ok=1
-                break
-              fi
-            fi
-          done
-          test "$ok" = 1
-          stat -c%s assets/index-aVU3gst9.js
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          prefix = Path('assets/index-CwAHZJlY.js').read_bytes()
+          marker = b'return{filled:n,total:r}}'
+          idx = prefix.find(marker)
+          if idx < 0:
+              raise SystemExit('prefix marker missing')
+          prefix = prefix[:idx + len(marker)]
+          parts = [prefix]
+          for name in ['assets/js-rest-0.txt', 'assets/js-rest-1.txt', 'assets/js-rest-2.txt', 'assets/js-rest-3.txt']:
+              p = Path(name)
+              if not p.exists():
+                  raise SystemExit(f'missing {name}')
+              parts.append(p.read_bytes().rstrip(b'\r\n'))
+          full = b''.join(parts)
+          want_sha = 'c15c37724cc5f5eeb64aa8fafd5fc38ac8c00baebc0ea0e93d47fd1d2ce0eb15'
+          want_size = 57768
+          got_sha = hashlib.sha256(full).hexdigest()
+          print('size', len(full), 'sha', got_sha)
+          if len(full) != want_size or got_sha != want_sha:
+              raise SystemExit(f'bundle mismatch size={len(full)} sha={got_sha}')
+          Path('assets/index-CwAHZJlY.js').write_bytes(full)
+          print('wrote complete index-CwAHZJlY.js')
+          PY
       - name: Commit assembled bundle
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/index-aVU3gst9.js
+          git add assets/index-CwAHZJlY.js
           if git diff --cached --quiet; then echo 'no change'; exit 0; fi
-          git commit -m "Add complete Sidetrack JS bundle"
+          git commit -m "Add complete Sidetrack v5 JS bundle"
           git push
