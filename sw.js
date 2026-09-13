@@ -1,4 +1,4 @@
-const CACHE = 'sidetrack-v12';
+const CACHE = 'sidetrack-v13';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(['./', './index.html'])));
