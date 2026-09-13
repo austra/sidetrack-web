@@ -17,14 +17,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Concatenate full bundle
         run: |
-          cat assets/j0.js.txt assets/j1.js.txt assets/j2.js.txt > assets/index-VPtWfico.js
-          wc -c assets/index-VPtWfico.js
-          test "$(wc -c < assets/index-VPtWfico.js)" -ge 42000
+          cat assets/j0.js.txt assets/j1.js.txt assets/j2.js.txt > assets/index-BcXKrBTn.js
+          wc -c assets/index-BcXKrBTn.js
+          test "$(wc -c < assets/index-BcXKrBTn.js)" -ge 42000
       - name: Commit assembled bundle
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/index-VPtWfico.js
+          git add assets/index-BcXKrBTn.js
           if git diff --cached --quiet; then echo 'no change'; exit 0; fi
-          git commit -m "Assemble complete playable Sidetrack JS bundle"
+          git commit -m "Polish: hard car rules, Rules modal, toggleable BGM"
           git push
