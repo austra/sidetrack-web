@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" fill="#2a2118"/>
-  <rect x="48" y="250" width="416" height="28" fill="#c4b49a"/>
-  <rect x="48" y="310" width="416" height="14" fill="#c4b49a"/>
-  <rect x="40" y="168" width="180" height="120" rx="20" fill="#1f6b6a"/>
-  <rect x="236" y="184" width="110" height="104" rx="16" fill="#9a3f32"/>
-  <rect x="360" y="196" width="100" height="92" rx="16" fill="#d4a24a"/>
-  <circle cx="110" cy="332" r="28" fill="#1a1612"/>
-  <circle cx="190" cy="332" r="28" fill="#1a1612"/>
-  <circle cx="300" cy="332" r="24" fill="#1a1612"/>
-  <circle cx="400" cy="332" r="24" fill="#1a1612"/>
-  <circle cx="390" cy="110" r="36" fill="#e8a06a"/>
-</svg>
+PLACEHOLDER_LOAD_FROM_DISK
