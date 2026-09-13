@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="./assets/boot.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Dqyue2BI.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-CYUxBLTt.css">
   </head>
   <body>
     <div id="app">
@@ -186,8 +186,8 @@
                 <p><b>Reefer</b> is food only (Peach, Ice). <b>Tanker</b> is hazmat only (Drum, Barrel).</p>
               </section>
               <section>
-                <h3>Consist</h3>
-                <p>Car order is a coupling. Tanker against Reefer, or a food car hugging a hazmat load, dings safety. Reorder on the waybill before the clock starts.</p>
+                <h3>Train order (consist)</h3>
+                <p>Car order is a coupling. Tanker against Reefer, or a food car hugging a hazmat load, dings safety. Reorder on today’s train sheet before the clock starts.</p>
               </section>
               <section>
                 <h3>Safety</h3>
@@ -237,13 +237,13 @@
 
         <div id="waybill" class="waybill hidden" hidden role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="waybill-title">
           <div class="waybill-card">
-            <p class="eyebrow">waybill</p>
+            <p class="eyebrow">today’s train</p>
             <h2 id="waybill-title">Prairie Siding</h2>
             <p id="waybill-mix" class="lede">2 boxcar · crates + timber</p>
             <div id="waybill-consist" class="consist"></div>
-            <p id="waybill-note" class="fineprint">Reorder with the arrows. Lock consist when you are ready — it will not close itself.</p>
-            <button id="btn-waybill-go" class="btn primary" type="button">Lock consist · pack</button>
-            <button id="btn-waybill-skip" class="btn text" type="button">Skip waybill</button>
+            <p id="waybill-note" class="fineprint">Use the arrows to change car order. Tap below when you’re ready to pack — this stays open until you do.</p>
+            <button id="btn-waybill-go" class="btn primary" type="button">Looks good — start packing</button>
+            <button id="btn-waybill-skip" class="btn text" type="button">Skip preview</button>
           </div>
         </div>
       </div>
