@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="./assets/boot.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DC2OtBYZ.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-ms1TkB_p.css">
   </head>
   <body>
     <div id="app">
@@ -56,6 +56,7 @@
           <div class="title-actions">
             <button id="btn-play" class="btn primary" type="button">Open the yard</button>
             <button id="btn-continue" class="btn ghost hidden" type="button">Continue career</button>
+            <button id="btn-reset-title" class="btn text" type="button">Reset career</button>
           </div>
         </section>
 
@@ -69,13 +70,14 @@
           <p id="map-day" class="lede">Day 1 · Prairie still owes you a clean departure.</p>
           <p id="map-hands" class="fineprint hidden">Yard hands idle until Harbor.</p>
           <div id="map-list" class="map-list"></div>
-          <div class="sheet-foot">
+          <div class="sheet-foot map-foot">
             <button id="btn-map-rules" class="btn ghost" type="button">Rules</button>
             <button id="btn-shop" class="btn primary" type="button">Upgrade shop</button>
             <label class="night-toggle hidden" id="night-wrap">
               <input type="checkbox" id="night-toggle" />
               <span>Night shift (3★)</span>
             </label>
+            <button id="btn-reset-map" class="btn text" type="button">Reset career</button>
           </div>
         </section>
 
@@ -112,7 +114,7 @@
           </footer>
         </section>
 
-        <section id="screen-results" class="screen hidden">
+        <section id="screen-results" class="screen hidden sheet-screen">
           <header class="sheet-head">
             <div>
               <p class="eyebrow" id="results-station">Prairie Siding</p>
@@ -122,22 +124,27 @@
           </header>
           <p class="score" id="results-score">0</p>
           <ul class="breakdown" id="results-break"></ul>
-          <div class="sheet-foot">
-            <button id="btn-results-shop" class="btn ghost" type="button">Shop</button>
-            <button id="btn-results-next" class="btn primary" type="button">Next station</button>
-            <button id="btn-results-map" class="btn ghost" type="button">Map</button>
+          <div class="sheet-foot results-foot">
+            <button id="btn-results-map" class="btn primary" type="button">Continue · map</button>
+            <div class="results-more">
+              <button id="btn-results-next" class="btn ghost" type="button">Next station</button>
+              <button id="btn-results-shop" class="btn ghost" type="button">Shop</button>
+            </div>
+            <button id="btn-reset-results" class="btn text" type="button">Reset career</button>
           </div>
         </section>
 
-        <section id="screen-incident" class="screen hidden">
+        <section id="screen-incident" class="screen hidden sheet-screen">
           <p class="eyebrow">yard report</p>
           <h2 id="inc-title">Incident</h2>
           <p class="lede" id="inc-body"></p>
           <p class="fineprint" id="inc-cost"></p>
-          <button id="btn-inc-go" class="btn primary" type="button">We roll anyway</button>
+          <div class="sheet-foot">
+            <button id="btn-inc-go" class="btn primary" type="button">We roll anyway</button>
+          </div>
         </section>
 
-        <section id="screen-over" class="screen hidden">
+        <section id="screen-over" class="screen hidden sheet-screen">
           <p class="eyebrow">closed for inspection</p>
           <h2>Yard chained</h2>
           <p class="lede">
@@ -200,6 +207,7 @@
                 <p>After Harbor, night is optional: meaner clock, better pay. Toggle it on the map.</p>
               </section>
             </div>
+            <button id="btn-reset-rules" class="btn text" type="button">Reset career</button>
             <button id="btn-rules-close" class="btn primary" type="button">Close</button>
           </div>
         </div>
