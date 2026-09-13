@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="./assets/boot.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CjpCiddS.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-DAeV_6OC.css">
   </head>
   <body>
     <div id="app">
@@ -27,8 +27,9 @@
         <header class="chrome" id="chrome">
           <div class="chrome-row chrome-stats">
             <span id="chrome-coins" class="pill brass">$0</span>
-            <div class="chrome-clock" id="chrome-clock">
+            <div class="chrome-clock" id="chrome-clock" aria-live="polite">
               <span class="watch-face" id="watch-face">—</span>
+              <span class="watch-phase" id="watch-phase">schedule</span>
             </div>
             <div class="chrome-meters">
               <span id="chrome-safety" class="pill teal">safe 78</span>
@@ -94,7 +95,7 @@
         </section>
 
         <section id="screen-run" class="screen hidden run">
-          <div class="bar-wrap run-bar">
+          <div class="bar-wrap run-bar" id="time-track" data-phase="calm">
             <div id="time-bar" class="bar"></div>
           </div>
           <div id="yard-tip" class="yard-tip hidden" aria-live="polite"></div>
