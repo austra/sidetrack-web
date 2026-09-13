@@ -18,17 +18,29 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="./assets/index-aVU3gst9.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-YgWz1y8T.css">
+    <script type="module" crossorigin src="./assets/index-CwAHZJlY.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BbE4U6Zt.css">
   </head>
   <body>
     <div id="app">
       <div class="phone" id="phone">
-        <button id="btn-rules" class="icon-btn rules-btn" type="button" aria-label="Rules">?</button>
-        <div class="audio-dock" id="audio-dock">
-          <button id="btn-music" class="icon-btn" type="button" aria-label="Music">♫</button>
-          <button id="mute" class="icon-btn" type="button" aria-label="Sound effects">♪</button>
-        </div>
+        <header class="chrome" id="chrome">
+          <div class="chrome-row chrome-stats">
+            <span id="chrome-coins" class="pill brass">$0</span>
+            <div class="chrome-clock" id="chrome-clock">
+              <span class="watch-face" id="watch-face">—</span>
+            </div>
+            <span id="chrome-safety" class="pill teal">safe 78</span>
+          </div>
+          <div class="chrome-row chrome-tools" id="chrome-tools">
+            <button id="btn-rules" class="icon-btn" type="button" aria-label="Rules">?</button>
+            <button id="btn-gear" class="icon-btn" type="button" aria-label="Settings" aria-expanded="false">⚙</button>
+            <div class="audio-dock" id="audio-dock">
+              <button id="btn-music" class="icon-btn" type="button" aria-label="Music">♫</button>
+              <button id="mute" class="icon-btn" type="button" aria-label="Sound effects">♪</button>
+            </div>
+          </div>
+        </header>
 
         <section id="screen-title" class="screen">
           <div class="title-sky"></div>
@@ -50,19 +62,16 @@
               <p class="eyebrow">career line</p>
               <h2>Yard Map</h2>
             </div>
-            <div class="pills">
-              <span id="map-coins" class="pill brass">0</span>
-              <span id="map-safety" class="pill teal">78</span>
-            </div>
           </header>
           <p id="map-day" class="lede">Day 1 · Prairie still owes you a clean departure.</p>
+          <p id="map-hands" class="fineprint hidden">Yard hands idle until Harbor.</p>
           <div id="map-list" class="map-list"></div>
           <div class="sheet-foot">
             <button id="btn-map-rules" class="btn ghost" type="button">Rules</button>
             <button id="btn-shop" class="btn primary" type="button">Upgrade shop</button>
             <label class="night-toggle hidden" id="night-wrap">
               <input type="checkbox" id="night-toggle" />
-              <span>Night shift</span>
+              <span>Night shift (3★)</span>
             </label>
           </div>
         </section>
@@ -73,9 +82,8 @@
               <p class="eyebrow">company store</p>
               <h2>Upgrade Shop</h2>
             </div>
-            <span id="shop-coins" class="pill brass">0</span>
           </header>
-          <p class="lede">Spend what the last whistle paid. Hands earn quietly. You still pack the cars.</p>
+          <p class="lede">Cash is thin. Power unlocks first. Comfort costs more. Loader stays dark until you buy a charge.</p>
           <div id="shop-list" class="shop-list"></div>
           <div class="sheet-foot">
             <button id="btn-shop-back" class="btn ghost" type="button">Back to map</button>
@@ -84,31 +92,19 @@
         </section>
 
         <section id="screen-run" class="screen hidden run">
-          <header class="hud">
-            <div class="watch" id="watch">
-              <span class="watch-face" id="watch-face">1:20</span>
-              <span class="watch-label">depart</span>
-            </div>
-            <div class="hud-mid">
-              <div class="bar-wrap">
-                <div id="time-bar" class="bar"></div>
-              </div>
-              <div class="hud-stats">
-                <span id="run-coins" class="stat">$0</span>
-                <span id="run-hands" class="stat dim">hands +0/s</span>
-              </div>
-            </div>
-            <div class="gauge" id="gauge" title="Safety">
-              <span id="gauge-val">78</span>
-              <small>safe</small>
-            </div>
-          </header>
+          <div class="bar-wrap run-bar">
+            <div id="time-bar" class="bar"></div>
+          </div>
+          <p id="yard-tip" class="yard-tip hidden"></p>
           <canvas id="yard"></canvas>
           <footer class="dock">
-            <button id="btn-rotate" class="btn dock-btn" type="button">Rotate</button>
-            <button id="btn-scrap" class="btn dock-btn ghost" type="button">Scrap</button>
-            <button id="btn-loader" class="btn dock-btn brass" type="button">Loader</button>
-            <button id="btn-depart" class="btn dock-btn primary" type="button">Depart</button>
+            <div id="run-objs" class="contracts" aria-live="polite"></div>
+            <div class="dock-row">
+              <button id="btn-rotate" class="btn dock-btn" type="button">Rotate</button>
+              <button id="btn-scrap" class="btn dock-btn ghost" type="button">Scrap</button>
+              <button id="btn-loader" class="btn dock-btn brass hidden" type="button">Loader</button>
+              <button id="btn-depart" class="btn dock-btn primary" type="button">Depart</button>
+            </div>
           </footer>
         </section>
 
@@ -171,7 +167,7 @@
             <div class="rules-body">
               <section>
                 <h3>Packing</h3>
-                <p>Drag a crate onto the open car, or tap a belt crate then tap a square. Rotate if it will not sit. Scrap dumps a blocker.</p>
+                <p>Tap a belt crate to select it. Tap it again to rotate. Only a real drag onto a valid cell seats it — taps never place. Hold Scrap to dump a blocker. Hold a selected crate to scrap it too.</p>
               </section>
               <section>
                 <h3>Cars</h3>
@@ -184,7 +180,7 @@
               </section>
               <section>
                 <h3>Schedule</h3>
-                <p>Depart before the whistle. Late trains cost score. Density and on-time still pay.</p>
+                <p>Each train is a ticket: 2–3 contracts on the Depart strip. 1★ is an on-time loaded depart. 3★ is every contract. Empty trains do not open the map. Night shift wants a 3★. Last 22 seconds the yard panics — belt runs hot, Loader dies, chrome hides.</p>
               </section>
               <section>
                 <h3>Loader</h3>
