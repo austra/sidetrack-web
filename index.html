@@ -18,13 +18,17 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="./assets/index-VPtWfico.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DvlkDLSG.css">
+    <script type="module" crossorigin src="./assets/index-BcXKrBTn.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-YgWz1y8T.css">
   </head>
   <body>
     <div id="app">
       <div class="phone" id="phone">
-        <button id="mute" class="icon-btn" type="button" aria-label="Mute">♪</button>
+        <button id="btn-rules" class="icon-btn rules-btn" type="button" aria-label="Rules">?</button>
+        <div class="audio-dock" id="audio-dock">
+          <button id="btn-music" class="icon-btn" type="button" aria-label="Music">♫</button>
+          <button id="mute" class="icon-btn" type="button" aria-label="Sound effects">♪</button>
+        </div>
 
         <section id="screen-title" class="screen">
           <div class="title-sky"></div>
@@ -54,6 +58,7 @@
           <p id="map-day" class="lede">Day 1 · Prairie still owes you a clean departure.</p>
           <div id="map-list" class="map-list"></div>
           <div class="sheet-foot">
+            <button id="btn-map-rules" class="btn ghost" type="button">Rules</button>
             <button id="btn-shop" class="btn primary" type="button">Upgrade shop</button>
             <label class="night-toggle hidden" id="night-wrap">
               <input type="checkbox" id="night-toggle" />
@@ -143,6 +148,56 @@
             <button id="btn-over-loan" class="btn ghost" type="button">Take a 40 advance</button>
           </div>
         </section>
+
+        <div id="toast" class="toast hidden" role="status"></div>
+
+        <div id="safety-lesson" class="tutorial hidden">
+          <div class="tut-card warn">
+            <p class="eyebrow">yard rule</p>
+            <p>Hazmat next to food drops the safety meter. Keep drums off the peaches.</p>
+            <div class="tut-actions">
+              <span></span>
+              <button id="btn-lesson-ok" class="btn primary" type="button">Got it</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="rules-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="rules-title">
+          <div class="modal-card">
+            <header>
+              <p class="eyebrow">yard book</p>
+              <h2 id="rules-title">Rules</h2>
+            </header>
+            <div class="rules-body">
+              <section>
+                <h3>Packing</h3>
+                <p>Drag a crate onto the open car, or tap a belt crate then tap a square. Rotate if it will not sit. Scrap dumps a blocker.</p>
+              </section>
+              <section>
+                <h3>Cars</h3>
+                <p><b>Boxcar</b> takes anything. <b>Flatbed</b> is wide and short — timber likes it.</p>
+                <p><b>Reefer</b> is food only (Produce, Icebox). <b>Tanker</b> is hazmat only (Drum, Barrel).</p>
+              </section>
+              <section>
+                <h3>Safety</h3>
+                <p>Never seat hazmat next to food. One bad pairing drops the safety meter and the payout.</p>
+              </section>
+              <section>
+                <h3>Schedule</h3>
+                <p>Depart before the whistle. Late trains cost score. Density and on-time still pay.</p>
+              </section>
+              <section>
+                <h3>Loader</h3>
+                <p>Loader burst speeds the belt and helps pieces snap into a legal fit. It cools down after.</p>
+              </section>
+              <section>
+                <h3>Night shift</h3>
+                <p>After Harbor, night is optional: meaner clock, better pay. Toggle it on the map.</p>
+              </section>
+            </div>
+            <button id="btn-rules-close" class="btn primary" type="button">Close</button>
+          </div>
+        </div>
 
         <div id="tutorial" class="tutorial hidden">
           <div class="tut-card">
