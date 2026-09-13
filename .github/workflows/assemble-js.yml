@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/assemble-js.yml'
       - 'assets/js-rest-*.txt'
+      - 'assets/r*.hex'
       - 'assets/index-CwAHZJlY.js'
   workflow_dispatch:
 jobs:
@@ -26,13 +27,15 @@ jobs:
           if idx < 0:
               raise SystemExit('prefix marker missing')
           prefix = prefix[:idx + len(marker)]
-          parts = [prefix]
-          for name in ['assets/js-rest-0.txt', 'assets/js-rest-1.txt', 'assets/js-rest-2.txt', 'assets/js-rest-3.txt']:
-              p = Path(name)
+          rest0 = Path('assets/js-rest-0.txt').read_bytes().rstrip(b'\r\n')
+          hexes = []
+          for i in range(10):
+              p = Path(f'assets/r{i}.hex')
               if not p.exists():
-                  raise SystemExit(f'missing {name}')
-              parts.append(p.read_bytes().rstrip(b'\r\n'))
-          full = b''.join(parts)
+                  raise SystemExit(f'missing {p}')
+              hexes.append(p.read_text().strip())
+          tail = bytes.fromhex(''.join(hexes))
+          full = prefix + rest0 + tail
           want_sha = 'c15c37724cc5f5eeb64aa8fafd5fc38ac8c00baebc0ea0e93d47fd1d2ce0eb15'
           want_size = 57768
           got_sha = hashlib.sha256(full).hexdigest()
